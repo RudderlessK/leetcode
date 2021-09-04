@@ -45,9 +45,40 @@ package medium
 
 //leetcode submit region begin(Prohibit modification and deletion)
 func longestPalindrome(s string) string {
-	for  {
-		
+	return simpleSolution(s)
+}
+
+// moreThanSimpleSolution
+func moreThanSimpleSolution(s string) string{
+	return ""
+}
+
+// simpleSolution 暴力拆解
+func simpleSolution(s string) string {
+	length := len(s)
+	if length <= 1 {
+		return s
 	}
+
+	var (
+		maxPalindromeLen = 1
+		maxPalindrome    = s[:1]
+	)
+	for idx, _ := range s {
+		//// 要检查的最大长度小于当前回文长度值，结束判断
+		//if length-idx <= maxPalindromeLen {
+		//	break
+		//}
+
+		for j := idx + maxPalindromeLen; j <= length+1; j++ {
+			substring := s[idx:j]
+			if isPalindrome(substring) {
+				maxPalindromeLen = j - idx
+				maxPalindrome = s[idx:j]
+			}
+		}
+	}
+	return maxPalindrome
 }
 
 func isPalindrome(s string) bool {
@@ -60,5 +91,4 @@ func isPalindrome(s string) bool {
 	}
 	return true
 }
-
 //leetcode submit region end(Prohibit modification and deletion)

@@ -117,7 +117,7 @@ func main() {
 	fmt.Println(fmt.Sprintf("%%%s%%", "d"))
 
 	a := "asdasd"
-	fmt.Println(a[0:0])
+	fmt.Println(a[0:7])
 	for _, c := range []rune(a) {
 		fmt.Printf("%c", c)
 	}
