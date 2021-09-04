@@ -1,0 +1,17 @@
+"pageflow": {
+"id": 4601,
+"name": "【SVR/管理后台】规则服务",
+"pageId": 1022,
+"version": "1.2.3",
+"remark": "",
+"status": "ADVANCE",
+"createdBy": "kiriljiang",
+"updatedBy": "kiriljiang",
+"createdAt": "2021-05-17 16:40:39",
+"updatedAt": "2021-08-12 15:52:17",
+"tapdId": "1020418989864846151",
+"tapdWorkspaceId": "20418989",
+"tapdIterationId": "1020418989001304965",
+"tapdCategoryId": "1020418989001137389",
+"tapdIsValid": 1
+}
