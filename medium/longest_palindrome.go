@@ -48,9 +48,53 @@ func longestPalindrome(s string) string {
 	return simpleSolution(s)
 }
 
-// moreThanSimpleSolution
-func moreThanSimpleSolution(s string) string{
-	return ""
+// centerExpandSolution 中心扩散
+func centerExpandSolution(s string) string {
+	length := len(s)
+	if length <= 1 {
+		return s
+	}
+
+	var (
+		longestPalindrome string
+		maxLength         int
+	)
+	for i := 0; i < length; i++ {
+		longerPalindrome, palindromeLength := maxLengthCmp(
+			centerExpand(s, i, i),
+			centerExpand(s, i, i+1),
+		)
+
+		if palindromeLength > maxLength {
+			maxLength = palindromeLength
+			longestPalindrome = longerPalindrome
+		}
+	}
+
+	return longestPalindrome
+}
+
+func maxLengthCmp(strs ...string) (string, int) {
+	var (
+		maxLengthString string
+		maxLength       int
+	)
+	for _, s := range strs {
+		l := len(s)
+		if l > maxLength {
+			maxLength = l
+			maxLengthString = s
+		}
+	}
+	return maxLengthString, maxLength
+}
+
+func centerExpand(s string, left, right int) string {
+	for ; right < len(s) && left >= 0 && s[left] == s[right]; {
+		right++
+		left--
+	}
+	return s[left+1 : right]
 }
 
 // simpleSolution 暴力拆解
@@ -91,4 +135,5 @@ func isPalindrome(s string) bool {
 	}
 	return true
 }
+
 //leetcode submit region end(Prohibit modification and deletion)
